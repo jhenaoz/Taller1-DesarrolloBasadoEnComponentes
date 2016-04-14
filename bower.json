@@ -1,0 +1,21 @@
+{
+  "name": "Taller1-DesarrolloBasadoEnComponentes",
+  "homepage": "https://github.com/jhenaoz/Taller1-DesarrolloBasadoEnComponentes",
+  "authors": [
+    "Juan David Henao Zapata <jhenaoz93@gmail.com>"
+  ],
+  "description": "Realizar el llamado a una API publica y luego en la respuesta realizar otro llamado usando por medio de peticiones http",
+  "main": "",
+  "keywords": [
+    "angular",
+    "eafit",
+    "taller1",
+    "DesarrolloBasadoEnComponentes"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "0.2.15"
+  },
+  "license": "MIT",
+  "private": true
+}
