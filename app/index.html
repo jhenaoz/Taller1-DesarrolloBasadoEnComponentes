@@ -3,8 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Taller1</title>
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
   </head>
-  <body>
-    Requests
+  <body ng-app="DeezerApp">
+    <div ng-controller="MainCtrl  ">
+      <form novalidate>
+        <input type="text" name="name" ng-model="name">
+        <button type="button" ng-click="searchInfo()">Search</button>
+      </form>
+    </div>
+  <!-- bower:js -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <!-- endbower -->
+  <!-- inject:js -->
+  <script src="app.js"></script>
+  <script src="controllers/main.controller.js"></script>
+  <script src="services/deezer.service.js"></script>
+  <!-- endinject -->
   </body>
 </html>
