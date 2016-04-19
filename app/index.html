@@ -13,6 +13,10 @@
       <form novalidate>
         <input type="text" name="name" ng-model="name">
         <button type="button" ng-click="searchInfo()">Search</button>
+        <div ng-repeat="image in images | unique : 'src'" style="width: 100px;
+          display: inline-block;">
+          <img ng-src="{{image.src}}" alt=""  height="100"/>
+        </div>
       </form>
     </div>
   <!-- bower:js -->
@@ -22,6 +26,7 @@
   <!-- inject:js -->
   <script src="app.js"></script>
   <script src="controllers/main.controller.js"></script>
+  <script src="filter/unique.js"></script>
   <script src="services/deezer.service.js"></script>
   <!-- endinject -->
   </body>
