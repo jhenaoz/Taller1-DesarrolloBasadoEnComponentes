@@ -3,28 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Taller1</title>
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- inject:css -->
-    <!-- endinject -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body ng-app="DeezerApp">
-    <div ng-controller="MainCtrl  ">
-      <form novalidate>
-        <input type="text" name="name" ng-model="name">
-        <button type="button" ng-click="searchInfo()">Search</button>
-        <div ng-repeat="image in images | unique : 'src'" style="width: 100px;
-          display: inline-block;">
-          <img ng-src="{{image.src}}" alt=""  height="100"/>
-        </div>
-      </form>
+    <div ui-view="">
+
     </div>
   <!-- bower:js -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
   <!-- endbower -->
   <!-- inject:js -->
   <script src="app.js"></script>
+  <script src="routes.js"></script>
   <script src="controllers/main.controller.js"></script>
   <script src="filter/unique.js"></script>
   <script src="services/deezer.service.js"></script>

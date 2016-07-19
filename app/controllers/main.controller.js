@@ -9,40 +9,29 @@
   function MainCtrl($scope, deezerService) {
     var vm = this;
     $scope.name = '';
+    $scope.track = {};
     $scope.searchInfo = searchInfo;
+    $scope.artist = {};
     $scope.images = [];
+    $scope.loading = false;
+    $scope.clearData = function(){
+      $scope.artist = {};
+    }
 
-    function searchInfo(){
-      $scope.images = [];
-      deezerService.getSongByName($scope.name).then(function(response){
-        searchInObject(response.data.data);
+    function searchInfo(query){
+      $scope.artist = {};
+      $scope.loading = true;
+      deezerService.getSongByName(query).then(function(response){
+        deezerService.getArtistById(response.data.data[0].artist.id).then(function(res){
+          $scope.loading = false;
+          $scope.artist = res.data;
+        }, function (error){
+          $scope.loading = false;
+          console.log(error);
+        });
       }, function(error){
         console.log(error);
       });
-    }
-
-    function searchInObject(object){
-      angular.forEach(object, function(obj){
-        if (typeof obj === 'object') {
-          for(var key in obj){
-            if(typeof obj[key] === 'string'){
-              validateImageUrl(obj[key]);
-            }else if (typeof obj[key] === 'object') {
-              searchInObject(obj[key]);
-            }
-          }
-        }
-        if (typeof obj === 'string') {
-          validateImageUrl(obj);
-        }
-      });
-    }
-
-    function validateImageUrl(url){
-      if(url.match(/.*\.jpg/)) {
-        console.log('Imagen', url);
-        $scope.images.push({'src' :url});
-      }
     }
   }
 })();

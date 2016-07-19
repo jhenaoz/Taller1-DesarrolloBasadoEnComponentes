@@ -1,6 +1,9 @@
 {
   "name": "simple-sign-on",
   "private": true,
+  "scripts": {
+    "start": "gulp"
+  },
   "devDependencies": {
     "connect-livereload": "^0.5.4",
     "gulp": "^3.9.0",

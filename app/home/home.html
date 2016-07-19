@@ -1,0 +1,48 @@
+<div>
+  <h1> Home Page </h1>
+  <div class="panel panel-primary" id="panel">
+    <div class="panel-heading"> Artist </div>
+      <div class="panel-body"> Please write and artist name
+        <form class="city-input">
+          <input id="search-track-input" class="form-control" type="text" ng-model="track.search" placeholder="Artist Name" >
+          <div>
+            <button class="btn btn-primary" type="submit" ng-click="searchInfo(track.search)"> Search Albums </button>
+            <button class="btn btn-primary clear-data-button" ng-click="clearData()"> Clear Data </button>
+            <span ng-if="loading">Loading ...</span>
+          </div>
+
+        </form>
+    </div>
+  </div>
+  <div class="panel panel-primary" id="panel" >
+    <div class="panel-heading"> Result </div>
+    <table class="table">
+      <thead>
+        <th> Field </th>
+        <th> Result </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td> Artist Name </td>
+          <td> {{artist.name}} </td>
+        </tr>
+        <tr>
+          <td> Deezer Profile </td>
+          <td> <a ng-href={{artist.link}}>{{artist.link}}</a></td>
+        </tr>
+        <tr>
+          <td> Albums  </td>
+          <td> {{artist.nb_album}}  </td>
+        </tr>
+        <tr>
+          <td> Deezer Fans  </td>
+          <td> {{artist.nb_fan}}  </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <button class="btn btn-primary" ui-sref="SecondPage"> Second Page </button>
+  </div>
+</div>
